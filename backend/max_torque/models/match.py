@@ -19,3 +19,7 @@ class Match(Base):
 
     players = relationship("Player")
     rounds = relationship("Round")
+
+    @staticmethod
+    def get_match_from_code(dbsession, code):
+        return dbsession.query(Match).filter_by(code=code).scalar()
