@@ -5,6 +5,8 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm install && npm install -g npx
 
+COPY . .
+
 RUN npx ng build
 
 FROM nginx:stable

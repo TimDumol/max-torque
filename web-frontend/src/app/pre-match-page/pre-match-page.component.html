@@ -1,0 +1,5 @@
+<h1>{{ match.code }}</h1>
+<ol>
+  <li *ngFor="let player of players">{{ player.name }}</li>
+</ol>
+<button *ngIf="me.is_match_maker">Start!</button>
