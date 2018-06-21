@@ -1,3 +1,13 @@
-<input type="number" placeholder="Number of rounds">
-<input type="text" placeholder="Name">
-<button>Start</button>
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div class="form-group">
+      <label class="form-label" for="number-of-rounds">Number of Rounds</label>
+      <input class="form-input" type="number" id="number-of-rounds" placeholder="Number of rounds" ngModel name="numberOfRounds">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-input" id="name" type="text" placeholder="Name" ngModel name="name">
+    </div>
+    <button >Start</button>
+  </form>
+</div>
