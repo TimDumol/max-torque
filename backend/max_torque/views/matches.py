@@ -36,3 +36,14 @@ def get_match_from_code(request):
     request.dbsession.add(match)
     request.dbsession.commit()
     return ModelDictEncoder().encode(match)
+
+
+@view_config(
+    route_name="join_match", request_method="PUT", renderer="json", permission="public"
+)
+def join_match(request):
+    match_code = request.matchdict["code"]
+
+    match = Match.get_match_from_code(request.dbsession, match_code)
+    print(match.players)
+    return ModelDictEncoder().encode(match)
