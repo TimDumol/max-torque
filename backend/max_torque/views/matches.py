@@ -13,7 +13,10 @@ from ..services.utils import generate_match_code
     permission="public",
 )
 def create_match(request):
-    new_match = Match(code=generate_match_code(length=6))
+    number_of_rounds = request.json_body.get("number_of_rounds", 0)
+    new_match = Match(
+        code=generate_match_code(length=6), number_of_rounds=number_of_rounds
+    )
 
     request.dbsession.add(new_match)
     request.dbsession.commit()
