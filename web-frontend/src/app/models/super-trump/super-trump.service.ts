@@ -36,4 +36,8 @@ export class SuperTrumpService {
         return "None";
     }
   }
+
+  deserialize(trump: string): SuperTrump {
+    return <SuperTrump>trump;
+  }
 }

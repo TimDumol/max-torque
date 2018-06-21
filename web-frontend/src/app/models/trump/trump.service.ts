@@ -32,4 +32,8 @@ export class TrumpService {
         return "Y";
     }
   }
+
+  deserialize(trump: string): Trump {
+    return <Trump>trump;
+  }
 }

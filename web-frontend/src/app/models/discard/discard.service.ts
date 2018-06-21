@@ -21,4 +21,8 @@ export class DiscardService {
         return "None";
     }
   }
+
+  deserialize(trump: string): Discard {
+    return <Discard>trump;
+  }
 }
