@@ -11,4 +11,4 @@ RUN npx ng build
 
 FROM nginx:stable
 
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=0 /app/dist/web-frontend /usr/share/nginx/html
