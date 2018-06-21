@@ -1,0 +1,12 @@
+paths:
+  /matches:
+    POST:
+      returns:
+      - code:
+          type: integer
+  /matches/:code/players:
+    POST:
+      parameters:
+      - name: name
+      returns:
+      - id: integer
