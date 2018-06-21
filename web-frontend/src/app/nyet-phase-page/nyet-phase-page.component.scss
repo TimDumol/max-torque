@@ -1,0 +1,9 @@
+@import "../../../node_modules/spectre.css/src/spectre";
+.nyet-board {
+  .choice {
+    @extend .col-2;
+  }
+  .trump-row .choice {
+    width: 20.83%;
+  }
+}

@@ -3,10 +3,6 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root"
 })
-export class RoundService {
+export class PointsService {
   constructor() {}
-
-  getCurrentRound() {
-
-  }
 }

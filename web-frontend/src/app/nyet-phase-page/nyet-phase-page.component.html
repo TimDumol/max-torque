@@ -1,0 +1,21 @@
+<div class="nyet-board container">
+  <div class="columns">
+    <div class="col-2 header">First Player</div>
+    <div (click)="rejectPlayer(player)" class="col-2 choice" *ngFor="let player of (match$ | async).players">{{ player.name }}</div>
+  </div>
+  <div class="columns">
+    <div class="col-2 header">Discard</div>
+    <div *ngFor="let discard of DISCARDS" (click)="rejectDiscard(discard)" class="choice"><div [innerHTML]="discardService.htmlFor(discard)"></div></div>
+  </div>
+  <div class="columns trump-row">
+    <div class="col-2 header">Trump</div>
+    <div *ngFor="let trump of TRUMPS" (click)="rejectDiscard(trump)" class="choice {{trumpService.fgClassFor(trump)}}"><div [innerHTML]="trumpService.htmlFor(trump)"></div></div>
+  </div>
+  <div class="columns">
+    <div class="col-2 header">Super Trump</div>
+    <div *ngFor="let superTrump of SUPER_TRUMPS" (click)="rejectDiscard(superTrump)" class="choice {{superTrumpService.fgClassFor(superTrump)}}"><div [innerHTML]="superTrumpService.htmlFor(superTrump)"></div></div>
+  </div>
+  <div class="columns">
+    <div class="col-2 header">Points</div>
+    <div *ngFor="let points of [1,2,3,4,-2]" (click)="rejectPoints(points)" class="choice">{{ points }}</div>
+</div>

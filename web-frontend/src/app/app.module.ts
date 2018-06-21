@@ -11,6 +11,8 @@ import { NewMatchPageComponent } from "./new-match-page/new-match-page.component
 import { JoinMatchPageComponent } from "./join-match-page/join-match-page.component";
 import { PreMatchPageComponent } from "./pre-match-page/pre-match-page.component";
 import { HttpClientModule } from "@angular/common/http";
+import { NyetPhasePageComponent } from "./nyet-phase-page/nyet-phase-page.component";
+import { TricksPhasePageComponent } from "./tricks-phase-page/tricks-phase-page.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from "@angular/common/http";
     HighScoresComponent,
     NewMatchPageComponent,
     JoinMatchPageComponent,
-    PreMatchPageComponent
+    PreMatchPageComponent,
+    NyetPhasePageComponent,
+    TricksPhasePageComponent
   ],
   imports: [
     BrowserModule,

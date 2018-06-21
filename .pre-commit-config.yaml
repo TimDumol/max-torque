@@ -4,11 +4,11 @@ repos:
   hooks:
   - id: black
     language_version: python3.6
-- repo: https://github.com/prettier/prettier
-  rev: 9ec1da1ad185a226280212a62a42319965a62ffc
-  hooks:
-  - id: prettier
-    files: '[.]s?css$|[.]ts$|[.]json$'
+#- repo: https://github.com/prettier/prettier
+#  rev: 9ec1da1ad185a226280212a62a42319965a62ffc
+#  hooks:
+#  - id: prettier
+#    files: '[.]s?css$|[.]ts$|[.]json$'
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v1.3.0  # Use the ref you want to point at
   hooks:
