@@ -39,14 +39,20 @@ class Round(Base):
     match = relationship("Match")
 
     __table_args__ = (
-        CheckConstraint(sequence >= 1),
-        UniqueConstraint(match_id, sequence),
+        CheckConstraint(sequence >= 1, name="round_sequence_valid_ck"),
+        UniqueConstraint(match_id, sequence, name="round_match_id_sequence_unique"),
         CheckConstraint(
-            discard.in_(
-                ["ONE_CARD", "TWO_CARDS", "ONE_EXCEPT_ONE", "PASS_LEFT", "NONE"]
-            )
+            "discard = ANY(ARRAY['ONE_CARD', 'TWO_CARDS', 'ONE_EXCEPT_ONE', 'PASS_LEFT', 'NONE'])",
+            name="round_discard_valid_ck",
         ),
-        CheckConstraint(trump.in_(["R", "G", "B", "Y"])),
-        CheckConstraint(super_trump.in_(["R", "G", "B", "Y", "NONE"])),
-        CheckConstraint(points.in_([1, 2, 3, 4, -2])),
+        CheckConstraint(
+            "trump = ANY(ARRAY['R', 'G', 'B', 'Y'])", name="round_trump_valid_ck"
+        ),
+        CheckConstraint(
+            "super_trump = ANY(ARRAY['R', 'G', 'B', 'Y', 'NONE'])",
+            name="round_super_trump_valid_ck",
+        ),
+        CheckConstraint(
+            "points = ANY(ARRAY[1, 2, 3, 4, -2])", name="round_points_valid_ck"
+        ),
     )
