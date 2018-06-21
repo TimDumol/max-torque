@@ -7,6 +7,14 @@ import { of } from "rxjs/internal/observable/of";
   providedIn: "root"
 })
 export class PlayerService {
+  public COLORS = [
+    '#4a90e2',
+    '#9013fe',
+    '#417505',
+    '#000000',
+    '#8b572a'
+  ];
+
   constructor() {}
 
   setCurrentPlayer(player: Player): Observable<void> {
@@ -22,5 +30,9 @@ export class PlayerService {
     } else {
       return of(null);
     }
+  }
+
+  getColorCode(player: Player): string {
+    return this.COLORS[player.sequence-1];
   }
 }

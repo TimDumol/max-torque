@@ -19,8 +19,12 @@ export class TrumpRuleRejectionService {
 //      trump: trump
 //    }, httpOptions);
   }
+  get(roundId: number): Observable<TrumpRuleRejection[]> {
+    return of(null);
+//    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/trumps`, httpOptions);
+  }
 
-  poll(roundId: number): Observable<TrumpRuleRejection> {
+  poll(roundId: number): Observable<TrumpRuleRejection[]> {
     return of(null);
 //    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/trumps`, httpOptions);
   }

@@ -18,8 +18,12 @@ export class PlayerRuleRejectionService {
 //      rejected_player_id: rejectedPlayerId
 //    }, httpOptions);
   }
+  get(roundId: number): Observable<PlayerRuleRejection[]> {
+    return of(null);
+//    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/players`, httpOptions);
+  }
 
-  poll(roundId: number): Observable<PlayerRuleRejection> {
+  poll(roundId: number): Observable<PlayerRuleRejection[]> {
     return of(null);
 //    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/players`, httpOptions);
   }

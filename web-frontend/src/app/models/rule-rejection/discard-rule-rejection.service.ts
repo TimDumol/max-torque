@@ -22,8 +22,12 @@ export class DiscardRuleRejectionService {
 //      discard: discard
 //    }, httpOptions);
   }
+  get(roundId: number): Observable<DiscardRuleRejection[]> {
+    return of(null);
+//    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/discards`, httpOptions);
+  }
 
-  poll(roundId: number): Observable<DiscardRuleRejection> {
+  poll(roundId: number): Observable<DiscardRuleRejection[]> {
     return of(null);
 //    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/discards`, httpOptions);
   }

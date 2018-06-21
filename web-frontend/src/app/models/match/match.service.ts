@@ -31,96 +31,96 @@ export class MatchService {
     code: string,
     name: string
   ): Observable<{ match: Match; player: Player }> {
-    return of({
-      match: {
-        id: 1,
-        code: "ABCDEF",
-        number_of_rounds: 4,
-        created_at: new Date(),
-        players: [
-          {
-            id: 1,
-            match_id: 1,
-            is_match_maker: true,
-            name: "Tim",
-            sequence: 1,
-            created_at: new Date()
-          },
-          {
-            id: 2,
-            is_match_maker: false,
-            match_id: 1,
-            name: "James",
-            sequence: 2,
-            created_at: new Date()
-          }
-        ]
-      },
-      player: {
-        id: 1,
-        is_match_maker: true,
-        match_id: 1,
-        name: "Tim",
-        sequence: 1,
-        created_at: new Date()
-      }
-    });
-    //return this.http.put<{match: Match, player: Player}>(`${this.matchesUrl}/${code}/join`, {name}, httpOptions);
+//    return of({
+//      match: {
+//        id: 1,
+//        code: "ABCDEF",
+//        number_of_rounds: 4,
+//        created_at: new Date(),
+//        players: [
+//          {
+//            id: 1,
+//            match_id: 1,
+//            is_match_maker: true,
+//            name: "Tim",
+//            sequence: 1,
+//            created_at: new Date()
+//          },
+//          {
+//            id: 2,
+//            is_match_maker: false,
+//            match_id: 1,
+//            name: "James",
+//            sequence: 2,
+//            created_at: new Date()
+//          }
+//        ]
+//      },
+//      player: {
+//        id: 1,
+//        is_match_maker: true,
+//        match_id: 1,
+//        name: "Tim",
+//        sequence: 1,
+//        created_at: new Date()
+//      }
+//    });
+    return this.http.put<{match: Match, player: Player}>(`${this.matchesUrl}/${code}/join`, {name}, httpOptions);
   }
 
   get(code: string): Observable<Match> {
-    return of({
-      id: 1,
-      code: "ABCDEF",
-      number_of_rounds: 4,
-      created_at: new Date(),
-      players: [
-        {
-          id: 1,
-          match_id: 1,
-          is_match_maker: true,
-          name: "Tim",
-          sequence: 1,
-          created_at: new Date()
-        },
-        {
-          id: 2,
-          is_match_maker: false,
-          match_id: 1,
-          name: "James",
-          sequence: 2,
-          created_at: new Date()
-        }
-      ]
-    });
-    //return this.http.get<Match>(`${this.matchesUrl}/${code}`, httpOptions);
+//    return of({
+//      id: 1,
+//      code: "ABCDEF",
+//      number_of_rounds: 4,
+//      created_at: new Date(),
+//      players: [
+//        {
+//          id: 1,
+//          match_id: 1,
+//          is_match_maker: true,
+//          name: "Tim",
+//          sequence: 1,
+//          created_at: new Date()
+//        },
+//        {
+//          id: 2,
+//          is_match_maker: false,
+//          match_id: 1,
+//          name: "James",
+//          sequence: 2,
+//          created_at: new Date()
+//        }
+//      ]
+//    });
+    return this.http.get<Match>(`${this.matchesUrl}/${code}`, httpOptions);
   }
 
   poll(code: string): Observable<Match> {
-    return of({
-      id: 1,
-      code: "ABCDEF",
-      number_of_rounds: 4,
-      created_at: new Date(),
-      players: [
-        {
-          id: 1,
-          match_id: 1,
-          is_match_maker: true,
-          name: "Tim",
-          sequence: 1,
-          created_at: new Date()
-        },
-        {
-          id: 2,
-          is_match_maker: false,
-          match_id: 1,
-          name: "James",
-          sequence: 2,
-          created_at: new Date()
-        }
-      ]
-    });
-    //return this.http.get<Match>(`${this.matchesUrl}/${code}`, httpOptions);
+//    return of({
+//      id: 1,
+//      code: "ABCDEF",
+//      number_of_rounds: 4,
+//      created_at: new Date(),
+//      players: [
+//        {
+//          id: 1,
+//          match_id: 1,
+//          is_match_maker: true,
+//          name: "Tim",
+//          sequence: 1,
+//          created_at: new Date()
+//        },
+//        {
+//          id: 2,
+//          is_match_maker: false,
+//          match_id: 1,
+//          name: "James",
+//          sequence: 2,
+//          created_at: new Date()
+//        }
+//      ]
+//    });
+    return this.http.get<Match>(`${this.matchesUrl}/${code}`, httpOptions);
   }
 }

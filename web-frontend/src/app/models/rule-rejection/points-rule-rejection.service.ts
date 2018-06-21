@@ -19,8 +19,12 @@ export class PointsRuleRejectionService {
 //      points: points
 //    }, httpOptions);
   }
+  get(roundId: number): Observable<PointsRuleRejection[]> {
+    return of(null);
+//    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/points`, httpOptions);
+  }
 
-  poll(roundId: number): Observable<PointsRuleRejection> {
+  poll(roundId: number): Observable<PointsRuleRejection[]> {
     return of(null);
 //    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/points`, httpOptions);
   }

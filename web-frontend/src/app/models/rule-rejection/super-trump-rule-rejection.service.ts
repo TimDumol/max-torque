@@ -20,8 +20,12 @@ export class SuperTrumpRuleRejectionService {
 //      super_trump: super_trump
 //    }, httpOptions);
   }
+  get(roundId: number): Observable<SuperTrumpRuleRejection[]> {
+    return of(null);
+//    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/super-trumps`, httpOptions);
+  }
 
-  poll(roundId: number): Observable<SuperTrumpRuleRejection> {
+  poll(roundId: number): Observable<SuperTrumpRuleRejection[]> {
     return of(null);
 //    return this.httpClient.get<DiscardRuleRejection>(`/api/rounds/${roundId}/rules/super-trumps`, httpOptions);
   }
