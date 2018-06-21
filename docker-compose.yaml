@@ -8,6 +8,14 @@ services:
     - ./backend:/app
     links:
     - db
+  front:
+    build: web-frontend
+    ports:
+    - 8800:8800
+    volumes:
+    - ./web-frontend/build:/usr/share/nginx/html
+    links:
+    - backend
   db:
     image: postgres
     restart: always
