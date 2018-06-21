@@ -11,7 +11,7 @@ from sqlalchemy import (
     UnicodeText,
 )
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, true
 
 from .meta import Base
 
@@ -25,7 +25,7 @@ class Card(Base):
         nullable=False,
     )
     #: we need this cos could be in trick or discarded
-    in_hand = Column(Boolean, nullable=False, server_default=True)
+    in_hand = Column(Boolean, nullable=False, server_default=true())
     value = Column(Integer, nullable=False)
     color = Column(UnicodeText, nullable=False)
 
@@ -36,6 +36,8 @@ class Card(Base):
     player = relationship("Player")
 
     __table_args__ = (
-        CheckConstraint(color.in_(["R", "G", "B", "Y"])),
-        CheckConstraint((value >= 1) & (value <= 13)),
+        CheckConstraint(
+            "color = ANY(ARRAY['R', 'G', 'B', 'Y'])", name="card_color_rgby_ck"
+        ),
+        CheckConstraint((value >= 1) & (value <= 13), name="card_value_valid_ck"),
     )

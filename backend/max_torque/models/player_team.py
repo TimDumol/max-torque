@@ -30,4 +30,6 @@ class PlayerTeam(Base):
     player = relationship("Player")
     round = relationship("Round")
 
-    __table_args__ = CheckConstraint(sequence.in_([1, 2]))
+    __table_args__ = (
+        CheckConstraint(sequence.in_([1, 2]), name="playerteam_valid_sequence"),
+    )

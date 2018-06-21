@@ -12,7 +12,7 @@ from sqlalchemy import (
     UniqueConstraint,
 )
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, false
 
 from .meta import Base
 
@@ -27,7 +27,7 @@ class Player(Base):
     )
     name = Column(UnicodeText, nullable=False)
     sequence = Column(Integer, nullable=False)
-    is_match_maker = Column(Boolean, server_default=False, nullable=False)
+    is_match_maker = Column(Boolean, server_default=false(), nullable=False)
 
     created_at = Column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
@@ -37,7 +37,7 @@ class Player(Base):
     hand = relationship("Card")
 
     __table_args__ = (
-        UniqueConstraint(match_id, name),
-        UniqueConstraint(match_id, sequence),
-        CheckConstraint(sequence >= 1),
+        UniqueConstraint(match_id, name, name="player_match_id_name_unique"),
+        UniqueConstraint(match_id, sequence, name="player_match_id_seq_unique"),
+        CheckConstraint(sequence >= 1, name="player_sequence_valid_ck"),
     )
