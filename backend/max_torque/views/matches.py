@@ -21,3 +21,18 @@ def create_match(request):
     request.dbsession.add(new_match)
     request.dbsession.commit()
     return ModelDictEncoder().encode(new_match)
+
+
+@view_config(
+    route_name="get_match_from_code",
+    request_method="GET",
+    renderer="json",
+    permission="public",
+)
+def get_match_from_code(request):
+    match_code = request.matchdict["code"]
+
+    match = Match.get_match_from_code(request.dbsession, match_code)
+    request.dbsession.add(match)
+    request.dbsession.commit()
+    return ModelDictEncoder().encode(match)
