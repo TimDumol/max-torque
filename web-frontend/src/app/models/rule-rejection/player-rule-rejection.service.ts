@@ -11,7 +11,7 @@ export class PlayerRuleRejectionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private create(roundId: number, playerId: number, rejectedPlayerId: number): Observable<void> {
+  create(roundId: number, playerId: number, rejectedPlayerId: number): Observable<void> {
     return of(null);
 //    return this.httpClient.post<void>(`/api/rounds/${roundId}/rules/players`, {
 //      player_id: playerId,

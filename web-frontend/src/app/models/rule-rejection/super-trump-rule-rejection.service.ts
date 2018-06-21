@@ -13,7 +13,7 @@ export class SuperTrumpRuleRejectionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private create(roundId: number, playerId: number, superTrump: SuperTrump): Observable<void> {
+  create(roundId: number, playerId: number, superTrump: SuperTrump): Observable<void> {
     return of(null);
 //    return this.httpClient.post<void>(`/api/rounds/${roundId}/rules/super-trumps`, {
 //      player_id: playerId,

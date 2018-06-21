@@ -3,6 +3,7 @@ import { TrumpRuleRejection } from "src/app/models/rule-rejection/trump-rule-rej
 import { of } from "rxjs/internal/observable/of";
 import { HttpClient } from "@angular/common/http";
 import { Trump } from "src/app/models/trump/trump.model";
+import { Observable } from "rxjs/internal/Observable";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class TrumpRuleRejectionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private create(roundId: number, playerId: number, trump: Trump): Observable<void> {
+  create(roundId: number, playerId: number, trump: Trump): Observable<void> {
     return of(null);
 //    return this.httpClient.post<void>(`/api/rounds/${roundId}/rules/trumps`, {
 //      player_id: playerId,
