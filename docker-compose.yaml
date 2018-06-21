@@ -1,0 +1,31 @@
+version: "3"
+services:
+  backend:
+    build: backend
+    ports:
+    - 9000:9000
+    volumes:
+    - ./backend:/app
+    links:
+    - db
+  front:
+    build: web-frontend
+    ports:
+    - 8800:8800
+    volumes:
+    - ./web-frontend/build:/usr/share/nginx/html
+    links:
+    - backend
+  db:
+    image: postgres
+    restart: always
+    ports:
+    - 5432:5432
+    volumes:
+    - db-storage:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: max-torque
+      POSTGRES_USER: max-torque
+      POSTGRES_DB: max-torque
+volumes:
+  db-storage: {}
