@@ -1,0 +1,3 @@
+[run]
+source = max_torque
+omit = max_torque/test*
