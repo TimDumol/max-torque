@@ -33,9 +33,7 @@ def create_match(request):
 def get_match_from_code(request):
     match_code = request.matchdict["code"]
 
-    match = Match.get_match_from_code(request.dbsession, match_code)
-    request.dbsession.add(match)
-    request.dbsession.commit()
+    match = Match.get_match_from_code(request.dbsession, match_code))
     return ModelDictEncoder().encode(match)
 
 
