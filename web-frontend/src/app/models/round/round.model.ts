@@ -5,9 +5,9 @@ export interface Round {
   match_id: number;
   sequence: number;
   first_player_sequence?: number;
-  discard?: number;
-  trump?: number;
-  super_trump?: number;
+  discard?: string;
+  trump?: string;
+  super_trump?: string;
   points?: number;
   double_player_sequence?: number;
 

@@ -22,7 +22,7 @@ export class PreMatchPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.match$ = this.matchService.get(
+    this.match$ = this.matchService.poll(
       this.route.snapshot.paramMap.get("code")
     );
     this.me$ = this.playerService.getCurrentPlayer();
