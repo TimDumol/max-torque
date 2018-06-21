@@ -2,6 +2,7 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 from sqlalchemy import (
+    Boolean,
     CheckConstraint,
     Column,
     DateTime,
@@ -26,6 +27,7 @@ class Player(Base):
     )
     name = Column(UnicodeText, nullable=False)
     sequence = Column(Integer, nullable=False)
+    is_match_maker = Column(Boolean, server_default=False, nullable=False)
 
     created_at = Column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
