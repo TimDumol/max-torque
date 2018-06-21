@@ -10,3 +10,18 @@ paths:
       - name: name
       returns:
       - id: integer
+  /rounds/:id/rules/players:
+    POST:
+    GET:
+  /rounds/:id/rules/discards:
+    POST:
+    GET:
+  /rounds/:id/rules/points:
+    POST:
+    GET:
+  /rounds/:id/rules/trumps:
+    POST:
+    GET:
+  /rounds/:id/rules/super-trumps:
+    POST:
+    GET:

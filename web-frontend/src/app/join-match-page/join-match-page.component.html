@@ -1,3 +1,13 @@
-<input type="text" placeholder="Match Code">
-<input type="text" placeholder="Name">
-<button>Join</button>
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div class="form-group">
+      <label class="form-label" for="match-code">Match Code</label>
+      <input class="form-input" type="text" id="match-code" placeholder="Number of rounds" ngModel name="matchCode">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-input" id="name" type="text" placeholder="Name" ngModel name="name">
+    </div>
+    <button >Start</button>
+  </form>
+</div>

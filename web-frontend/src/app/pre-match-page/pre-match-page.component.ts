@@ -1,4 +1,10 @@
 import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs/internal/Observable";
+import { Match } from "src/app/models/match/match.model";
+import { Player } from "src/app/models/player/player.model";
+import { PlayerService } from "src/app/models/player/player.service";
+import { MatchService } from "src/app/models/match/match.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-pre-match-page",
@@ -6,7 +12,19 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./pre-match-page.component.css"]
 })
 export class PreMatchPageComponent implements OnInit {
-  constructor() {}
+  match$: Observable<Match>;
+  me$: Observable<Player>;
 
-  ngOnInit() {}
+  constructor(
+    private matchService: MatchService,
+    private playerService: PlayerService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.match$ = this.matchService.poll(
+      this.route.snapshot.paramMap.get("code")
+    );
+    this.me$ = this.playerService.getCurrentPlayer();
+  }
 }
