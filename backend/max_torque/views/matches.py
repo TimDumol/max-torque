@@ -2,6 +2,7 @@
 from pyramid.view import view_config
 
 from ..models.match import Match
+from ..models.player import Player
 from ..services.encoding import ModelDictEncoder
 from ..services.utils import generate_match_code
 
@@ -43,7 +44,23 @@ def get_match_from_code(request):
 )
 def join_match(request):
     match_code = request.matchdict["code"]
+    player_name = request.json_body["name"]
 
     match = Match.get_match_from_code(request.dbsession, match_code)
-    print(match.players)
-    return ModelDictEncoder().encode(match)
+    match_players = match.players
+    current_players_count = len(match_players)
+
+    is_match_maker = bool(current_players_count == 0)
+
+    new_player = Player(
+        match_id=match.id,
+        name=player_name,
+        sequence=current_players_count + 1,
+        is_match_maker=is_match_maker,
+    )
+    request.dbsession.add(new_player)
+    request.dbsession.commit()
+
+    return ModelDictEncoder({Match: {"expand": ["players"]}}).encode(
+        {"match": match, "player": new_player}
+    )
